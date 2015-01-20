@@ -1,16 +1,16 @@
-#RATES list should be a list of tuples, with each tuple containing a currency
-#code you can convert from, a currency code you can convert to, and a rate.
+def get_rate(rates, orig_cur, new_cur):
+    for rate in rates:
+        if orig_cur in rate[0] and new_cur in rate[1]:
+            conv = round(rate[2],2)
+            return conv
+        elif orig_cur in rate[1] and new_cur in rate[0]:
+            conv = round(1 / rate[2],2)
+            return conv
 
 def convert(rates, value, orig_cur, new_cur):
     if orig_cur == new_cur:
         return value
-    elif orig_cur == rates[0][0]:
-        conversion = round(value * rates[0][2], 2)
-        return conversion
-    elif orig_cur == rates[0][1]:
-        conversion = round(value / rates[0][2], 2)
-        return conversion
-
-
-
-#onvert(rates, 1, "USD", "EUR")
+    else:
+        rate = get_rate(rates, orig_cur, new_cur)
+        final = value * rate
+        return rate
