@@ -1,4 +1,5 @@
 def get_rate(rates, orig_cur, new_cur):
+    """Pulls coversion rate between two currencys"""
     for rate in rates:
         if orig_cur in rate[0] and new_cur in rate[1]:
             conv = round(rate[2],2)
@@ -7,7 +8,9 @@ def get_rate(rates, orig_cur, new_cur):
             conv = round(1 / rate[2],2)
             return conv
 
+
 def convert(rates, value, orig_cur, new_cur):
+    """Convert value of one current into another"""
     if orig_cur == new_cur:
         return value
     else:

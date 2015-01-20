@@ -17,12 +17,8 @@ def test_convertEURJPY():
 def test_convertJPYEUR():
     assert convert(rates, 1, "JPY", "EUR") == .01
 
-
-
-
-#    assert convert(rates, 1, "EUR", "JPY") == ("EUR", "JPY", 145.949)
-
-#print(convert(rates, 1, "EUR", "JPY"))
-#print(convert(rates, 1, "JPY", "EUR"))
-#print(convert(rates, 1, "EUR", "USD"))
-#print(convert(rates, 1, "USD", "EUR"))
+def test_rate_pull():
+    assert get_rate(rates, "USD", "EUR") == .74
+    assert get_rate(rates, "EUR", "USD") == 1.35
+    assert get_rate(rates, "JPY", "EUR") == .01
+    assert get_rate(rates, "EUR", "JPY") == 145.95
