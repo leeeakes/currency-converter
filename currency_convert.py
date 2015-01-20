@@ -6,7 +6,7 @@ rates = [("USD", "EUR", .74)]
 def convert(rates, value, orig_cur, new_cur):
     if orig_cur == new_cur:
         return value
-    conversion = value * rates
+    conversion = round(value * rates, 2)
     return conversion
 
 #def get_rate():
