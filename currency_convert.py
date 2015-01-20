@@ -4,5 +4,13 @@
 def convert(rates, value, orig_cur, new_cur):
     if orig_cur == new_cur:
         return value
-    conversion = conversion = round(value * rates[0][2], 2)
-    return conversion
+    elif orig_cur == rates[0][0]:
+        conversion = round(value * rates[0][2], 2)
+        return conversion
+    elif orig_cur == rates[0][1]:
+        conversion = round(value / rates[0][2], 2)
+        return conversion
+
+
+
+#onvert(rates, 1, "USD", "EUR")
